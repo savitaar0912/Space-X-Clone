@@ -1,0 +1,55 @@
+.section{
+    height: 100vh;
+}
+.section::before{
+    content: "";
+    background: url('https://sxcontent9668.azureedge.us/cms-assets/assets/Trans8_OS_56_Launch_Streak_3593_Desktop_bd25abbbb2.jpg') no-repeat center center/cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+.section1{
+    height: 100vh;
+}
+.section1::before{
+    content: "";
+    background: url('https://sxcontent9668.azureedge.us/cms-assets/assets/Star5_11_DSC_3258_desktop_bd16994383.jpg') no-repeat center center/cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+.section2{
+    height: 100vh;
+}
+.section2::before{
+    content: "";
+    background: url('https://sxcontent9668.azureedge.us/cms-assets/assets/CRS_28_outsidehangar1h_IMG_3768_desktop_f9d8036732.jpg') no-repeat center center/cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+.section3{
+    height: 100vh;
+}
+.section3::before{
+    content: "";
+    background: url('https://sxcontent9668.azureedge.us/cms-assets/assets/Axiom_2_Splashdown_Crew_Website_000729053023_Desktop_2_3b35df56e4.JPG') no-repeat center center/cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+.section4{
+    height: 100vh;
+}
+.section4::before{
+    content: "";
+    background: url('https://sxcontent9668.azureedge.us/cms-assets/assets/STARSHIP_Testflight_DESKTOP_2b3bea613a.jpg') no-repeat center center/cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
