@@ -1,0 +1,22 @@
+.list {
+  margin: 10px;
+  justify-content: center;
+  height: 70px;
+  align-items: center;
+  display: flex;
+  grid-gap: 20px;
+  color: white;
+}
+.list>a{
+  color: white;
+}
+
+@media screen and (max-width: 786px) {
+  .list {
+    display: grid;
+    margin: 20px;
+    padding: 0px 40px;
+    grid-gap: 10px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
