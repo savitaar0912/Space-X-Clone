@@ -1,0 +1,19 @@
+.rocket{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    margin-top: 10px;
+}
+.card{
+    width: 18rem;
+    height: auto;
+    margin: 30px 0px;
+}
+.card-text{
+    bottom: 19px;
+}
+@media screen and (max-width: 1111px) {
+    .rocket{
+        grid-template-columns: repeat(2 , minmax(0,1fr));
+    }
+}

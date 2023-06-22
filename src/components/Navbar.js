@@ -2,14 +2,14 @@ import React, { useEffect } from 'react'
 import '../css/navbar.css'
 import { auth, provider } from '../firebase'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { selectUserName, selectUserPhoto, setLogin, setLogout } from '../features/user/userSlice'
-// import { Dropdown } from 'bootstrap'
 import Dropdown from 'react-bootstrap/Dropdown';
 
 export default function Navbar() {
 
     const dispatch = useDispatch()
+    const location = useLocation(); // Access the current location
     const navigate = useNavigate()
     const userName = useSelector(selectUserName)
     const userPhoto = useSelector(selectUserPhoto)
@@ -26,19 +26,22 @@ export default function Navbar() {
 
     useEffect(() => {
         auth.onAuthStateChanged(async (user) => {
-            if (user) {
-                setUser(user)
-                navigate('/home')
+          if (user) {
+            setUser(user);
+            const intendedPath = location.state?.intendedPath || '/home';
+            if (location.pathname === '/') {
+              navigate(intendedPath);
             }
-        })
+          }
+        });
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [userName])
+      }, [userName, navigate, location]);
 
 
     const Login = () => {
         if (!userName) {
             auth.signInWithPopup(provider).then((result) => {
-                console.log(result.user)
+                // console.log(result.user)
             }).catch((error) => {
                 alert(error.message)
             })
@@ -63,22 +66,13 @@ export default function Navbar() {
                     <div id="navigation">
                         <ul className="nav-links">
                             <li className="nav-item">
-                                <a href="/vehicles/falcon-heavy/" aria-label="Learn about the Falcon Heavy vehicle">Falcon Heavy</a>
+                                <a href="/rockets" aria-label="Learn about the Falcon Heavy vehicle">Rockets</a>
                             </li>
                             <li className="nav-item">
-                                <a href="/vehicles/dragon/" aria-label="Learn about the Dragon vehicle">Dragon</a>
+                                <a href="/capsules" aria-label="Learn about the Dragon vehicle">Capsules</a>
                             </li>
                             <li className="nav-item">
-                                <a href="/vehicles/starship/" aria-label="Learn about the Starship vehicle">Starship</a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="/human-spaceflight/" aria-label="Learn about Human Spaceflight">Human Spaceflight</a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="/rideshare/" aria-label="Learn about the Rideshare program">Rideshare</a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="/starshield/" aria-label="Learn about the Starshield program">Starshield</a>
+                                <a href="/ships" aria-label="Learn about the Dragon vehicle">Ships</a>
                             </li>
                             <li className="nav-item">
                                 <a href="https://www.starlink.com" aria-label="Learn about Starlink internet" target="_">Starlink</a>
@@ -100,7 +94,7 @@ export default function Navbar() {
                     </div>
                 </> :
                     <div className="login">
-                        <button type="button" class="btn btn-light" onClick={Login}>Sign In</button>
+                        <button type="button" className="btn btn-light" onClick={Login} style={{ marginTop: '10px', marginLeft: "50vw" }}>Sign In</button>
                     </div>
                 }
             </div>
