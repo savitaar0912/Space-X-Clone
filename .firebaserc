@@ -1,8 +1,7 @@
 {
-    "projects": {
-        "default": "space-x-be5cd",
-        "none": "space-x-be5cd"
-    },
-    "targets": {},
-    "etags": {}
+  "projects": {
+    "default": "space-x-be5cd"
+  },
+  "targets": {},
+  "etags": {}
 }
